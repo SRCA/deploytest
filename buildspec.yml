@@ -1,12 +1,11 @@
 version: 0.2
 
-env:
-  variables:
-    PROJECT: deploytest
-    DOTNET_FRAMEWORK: 4.6.1
 phases:
+  pre_build:
+    commands:
+     - New-Item -ItemType Junction -Path C:\Src -Value $Env:CODEBUILD_SRC_DIR
+     - cd C:\Src  
+     - nuget.exe restore
   build:
     commands:
-      - nuget restore
-      - Install-Package MSBuild.Microsoft.VisualStudio.Web.target
-      - '& "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe" $env:PROJECT.csproj /p:TargetFrameworkVersion=v$env:DOTNET_FRAMEWORK /p:Configuration=Release /p:DeployIisAppPath="hoa.srca.net" /p:PackageAsSingleFile=false /p:OutDir=C:\codebuild\artifacts\'
+     - msbuild 
