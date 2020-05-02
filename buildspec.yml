@@ -8,4 +8,4 @@ phases:
      - nuget.exe restore
   build:
     commands:
-     - dir
+     - msbuild
