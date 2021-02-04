@@ -1,11 +1,15 @@
 version: 0.2
 
+env:
+  variables:
+    PROJECT: deploytest
+    DOTNET_FRAMEWORK: 4.6.1
 phases:
-  pre_build:
-    commands:
-     - New-Item -ItemType Junction -Path C:\Src -Value $Env:CODEBUILD_SRC_DIR
-     - cd C:\Src  
-     - nuget.exe restore
   build:
     commands:
-     - msbuild
+      - nuget restore
+      - msbuild $env:PROJECT.csproj /p:TargetFrameworkVersion=v$env:DOTNET_FRAMEWORK /p:Configuration=Release /p:DeployIisAppPath="Default Web Site" /p:PackageAsSingleFile=false /p:OutDir=C:\codebuild\artifacts\ /t:Package
+artifacts:
+  files:
+    - '**/*'
+  base-directory: 'C:\codebuild\artifacts\_PublishedWebsites\${env:PROJECT}_Package\Archive\'
