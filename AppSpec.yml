@@ -2,4 +2,4 @@ version: 0.0
 os: windows
 files:
   - source: source
-    destination: C:\inetpub\Applications\HOA-Beta
+    destination: D:\inetpub\deploytest
