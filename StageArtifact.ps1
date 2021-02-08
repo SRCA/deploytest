@@ -3,7 +3,7 @@ $target = "C:\temp\"
 function DeleteIfExistsAndCreateEmptyFolder($dir )
 {
     if ( Test-Path $dir ) {    
-           Get-ChildItem -Path  $dir -Force -Recurse | Remove-Item -force –
+           Get-ChildItem -Path  $dir -Force -Recurse | Remove-Item -force
 							  recurse
            Remove-Item $dir -Force
     }
