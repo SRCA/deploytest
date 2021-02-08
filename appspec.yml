@@ -3,3 +3,7 @@ os: windows
 files:
   - source: source
     destination: D:\inetpub\deploytest
+
+hooks:
+  BeforeInstall:
+    - location: .\StageArtifact.ps1
