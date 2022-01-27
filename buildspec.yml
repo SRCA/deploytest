@@ -12,5 +12,4 @@ phases:
 artifacts:
   files:
     - appspec.yml
-    - build-output/**/*
-  base-directory: build-output
+    - bin/*
