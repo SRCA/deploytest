@@ -1,5 +1,5 @@
 version: 0.0
 os: windows
 files:
-  - source: *
-    destination: D:\inetpub\deploytest
+  - destination: D:\inetpub\deploytest
+    
