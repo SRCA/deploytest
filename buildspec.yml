@@ -11,6 +11,5 @@ phases:
       - msbuild $env:PROJECT.csproj /p:TargetFrameworkVersion=v$env:DOTNET_FRAMEWORK /p:Configuration=Release /p:PackageAsSingleFile=false /p:OutDir=C:\codebuild\artifacts\ /t:Package
 artifacts:
   files:
-    - ./appspec.yml
-    - '**/*'
-  base-directory: 'deploytest'
+    - appspec.yml
+    - deploytest\
