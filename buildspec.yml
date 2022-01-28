@@ -13,3 +13,4 @@ artifacts:
   files:
     - appspec.yml
     - deploytest\*
+    - deploytest\Views\*
